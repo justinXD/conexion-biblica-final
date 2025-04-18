@@ -9,4 +9,10 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' }
+  },
+  modules: [
+    '@pinia/nuxt',
+  ],
 })
