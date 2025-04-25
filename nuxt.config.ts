@@ -12,7 +12,10 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' }
   },
+  plugins: ['~/plugins/vue-sweetalert2.ts'],
   modules: [
     '@pinia/nuxt',
+    '@bootstrap-vue-next/nuxt',
+    // 'vue-sweetalert2/nuxt',
   ],
 })

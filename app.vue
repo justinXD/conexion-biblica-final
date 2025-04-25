@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-gray-800 grid place-content-center h-screen w-screen">
+  <main class="bg-light-white grid place-content-center h-screen w-screen">
     <!-- <NuxtRouteAnnouncer />
     <NuxtWelcome /> -->
     <NuxtPage />

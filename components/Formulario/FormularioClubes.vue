@@ -28,13 +28,23 @@
             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
-        <button
-          type="submit"
-          :disabled="clubes.length >= 5 || !nuevoClub"
-          class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 disabled:opacity-50 cursor-pointer"
-        >
-          Registrar
-        </button>
+        <div class="grid grid-cols-2 gap-4">
+          <button
+            type="submit"
+            :disabled="clubes.length >= 5"
+            class="bg-green-1 text-gray-950 px-4 py-2 rounded-lg disabled:opacity-50 cursor-pointer"
+          >
+            Registrar
+          </button>
+          <NuxtLink
+            to="/juego"
+            @click="shuffle"
+            :class="['bg-yellow-gold text-gray-950 px-4 py-2 rounded-lg cursor-pointer', { 'disabled:opacity-50 pointer-events-none': isDisabled }]"
+            :tabindex="isDisabled ? -1 : 0"
+          >
+            Reordenar clubes
+          </NuxtLink>
+        </div>
       </form>
   
       <div class="mt-6">
@@ -50,32 +60,68 @@
   
 <script setup lang="ts">
     import { useClubesStore } from '@/stores/useClubesStore'
+    import { usePreguntasPorClubStore } from '@/stores/usePreguntasPorClubStore';
     import type { IClub } from '~/types/clubes'
+    import { ref, watch, onMounted } from 'vue';
+    const { $swal } = useNuxtApp();
 
 
     const nuevoClub = useState<string>('nuevoClub', () => '')
     const nuevoPuntaje = useState<number>('nuevoPuntaje', () => 0)
+    const isDisabled = ref<boolean>(true)
 
     const clubesStore = useClubesStore()
-    const { registrarClub, clubes } = clubesStore
+    const preguntasPorClubStore = usePreguntasPorClubStore()
+    const { registrarClub, clubes, mezclarClubesYAsignarPreguntas } = clubesStore
 
+    onMounted(() => {
+      // Verificar si ya hay clubes registrados al cargar el componente
+      if (clubes.length >= 5) {
+        isDisabled.value = false
+      }
+    })
     function registrarClubes() {
-    if (clubes.length >= 5) {
-        alert('Ya se han registrado los 5 clubes permitidos.')
-        return
+      // Validar que el club no esté vacío y que el puntaje sea un número positivo
+      if (nuevoClub.value.trim() !== '' && nuevoPuntaje.value >= 0) {
+        // Crear el objeto del club a registrar
+      const clubARegistrar: IClub = {
+          club: nuevoClub.value,
+          puntaje: nuevoPuntaje.value
+      }
+        // Verificar si el club ya existe
+        console.log(clubARegistrar)
+        registrarClub(clubARegistrar)
+          nuevoClub.value = ''
+          nuevoPuntaje.value = 0
+      }
+      else {
+        $swal.fire({
+          title: 'Error',
+          text: 'Por favor, completa todos los campos correctamente.',
+          icon: 'error',
+          showCancelButton: false,
+          confirmButtonText: 'Aceptar'
+        })
+      }
     }
-
-    if (nuevoClub.value.trim() !== '') {
-    const clubARegistrar: IClub = {
-        club: nuevoClub.value,
-        puntaje: nuevoPuntaje.value
+    watch(clubes, (newValue: IClub[]) => {
+        if (newValue.length >= 5) {
+          mostrarAlerta()
+          isDisabled.value = false
+        }
+    })
+    function mostrarAlerta() {
+        $swal.fire({
+            title: 'Tope de clubes alcanzado',
+            text: 'Ya se han registrado los 5 clubes permitidos.',
+            icon: 'warning',
+            showCancelButton: false,
+            confirmButtonText: 'Aceptar'
+        })
     }
-      // Verificar si el club ya existe
-      console.log(clubARegistrar)
-    registrarClub(clubARegistrar)
-        nuevoClub.value = ''
-        nuevoPuntaje.value = 0
-    }
+    function shuffle() {
+      mezclarClubesYAsignarPreguntas()
+      console.log('Clubes mezclados y preguntas asignadas:', preguntasPorClubStore.getAllPreguntasPorClub)
     }
 </script>
   

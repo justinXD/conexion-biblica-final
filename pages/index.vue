@@ -1,7 +1,7 @@
 <template >
     <main class="grid justify-items-center">
-        <h1 class="text-3xl text-green-500 font-bold ease-in">Final de conexion biblica</h1>
-        <button class="bg-green-500 rounded-xl w-[10rem] cursor-pointer" type="button">
+        <h1 class="text-3xl text-yellow-gold font-bold ease-in m-4">Final de conexion biblica</h1>
+        <button class=" text-xl p-2 bg-yellow-gold rounded-xl w-[10rem] cursor-pointer" type="button">
             <NuxtLink to="/registroClubes">Iniciar juego</NuxtLink>
         </button>
     </main>
