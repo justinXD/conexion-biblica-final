@@ -15,7 +15,7 @@
   </template>
   
   <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted } from 'vue'
 // import { GridPregunta } from '@/components/GridPregunta/GridPregunta.vue'
   
   const tiempoInicial = 45

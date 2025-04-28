@@ -1,5 +1,4 @@
-import { defineStore, storeToRefs } from 'pinia'
-import { toRaw } from 'vue'
+import { defineStore } from 'pinia'
 import type { IClub, IPreguntasPorClub } from '~/types/clubes'
 import { usePreguntasStore } from './usePreguntasStore'
 import { usePreguntasPorClubStore } from './usePreguntasPorClubStore'
@@ -28,10 +27,10 @@ export const useClubesStore = defineStore('clubes', {
                 this.clubes.push(club)
             }
         },
-        modificarPuntaje(nombre: string, nuevoPuntaje: number) {
+        modificarPuntaje(nombre: string) {
             const club = this.clubes.find(c => c.club === nombre)
             if (club) {
-                club.puntaje = nuevoPuntaje
+                club.puntaje += 100
             }
             return this.getClubByName(nombre)?.puntaje
         },
@@ -41,7 +40,13 @@ export const useClubesStore = defineStore('clubes', {
               club.puntaje -= 50
             }
             return this.getClubByName(nombre)?.puntaje
-        },
+      },
+      getPuntosPorClub(nombre: string): number | undefined {
+        const club = this.clubes.find(c => c.club === nombre)
+        if (club) {
+          return club.puntaje
+        }
+      },
         mezclarClubesYAsignarPreguntas() {
             // const preguntasPorClubStore = usePreguntasPorClubStore()
         

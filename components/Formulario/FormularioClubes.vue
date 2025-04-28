@@ -42,7 +42,7 @@
             :class="['bg-yellow-gold text-gray-950 px-4 py-2 rounded-lg cursor-pointer', { 'disabled:opacity-50 pointer-events-none': isDisabled }]"
             :tabindex="isDisabled ? -1 : 0"
           >
-            Reordenar clubes
+            Iniciar juego
           </NuxtLink>
         </div>
       </form>
