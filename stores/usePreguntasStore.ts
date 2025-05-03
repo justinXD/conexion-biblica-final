@@ -4,228 +4,228 @@ import type { IPregunta } from '~/types/clubes'
 
 export const usePreguntasStore = defineStore('preguntas', {
   state: () => ({ preguntas: [{
-    pregunta: '¿Cuál es el océano más grande del mundo?',
+    pregunta: '¿Qué señal dio el ángel a Zacarías por no creer su mensaje? ',
     opciones: [
-      { opcion: 'Atlántico', isCorrecta: false },
-      { opcion: 'Índico', isCorrecta: false },
-      { opcion: 'Ártico', isCorrecta: false },
-      { opcion: 'Pacífico', isCorrecta: true }
+      { opcion: 'Quedó ciego', isCorrecta: false },
+      { opcion: 'Quedó mudo', isCorrecta: true },
+      { opcion: 'Quedó paralítico', isCorrecta: false },
+      { opcion: 'No recibió ninguna señal', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Qué planeta es conocido como el planeta rojo?',
+    pregunta: '¿Quién era el emperador cuando nació Jesús?',
     opciones: [
-      { opcion: 'Júpiter', isCorrecta: false },
-      { opcion: 'Marte', isCorrecta: true },
-      { opcion: 'Saturno', isCorrecta: false },
-      { opcion: 'Venus', isCorrecta: false }
+      { opcion: 'César Augusto', isCorrecta: true },
+      { opcion: 'Herodes el Grande', isCorrecta: false },
+      { opcion: 'Tiberio', isCorrecta: false },
+      { opcion: 'Poncio Pilato', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Quién escribió "Cien años de soledad"?',
+    pregunta: '¿Qué sucedió cuando Jesús fue bautizado?',
     opciones: [
-      { opcion: 'Mario Vargas Llosa', isCorrecta: false },
-      { opcion: 'Gabriel García Márquez', isCorrecta: true },
+      { opcion: 'Hubo un terremoto', isCorrecta: false },
+      { opcion: 'Se abrió el cielo y el Espíritu Santo descendió como paloma', isCorrecta: true },
       { opcion: 'Pablo Neruda', isCorrecta: false },
-      { opcion: 'Jorge Luis Borges', isCorrecta: false }
+      { opcion: 'Cayó fuego del cielo', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Cuál es la capital de Canadá?',
+    pregunta: '¿En qué ciudad predicó Jesús por primera vez después del desierto?',
     opciones: [
-      { opcion: 'Toronto', isCorrecta: false },
-      { opcion: 'Ottawa', isCorrecta: true },
-      { opcion: 'Vancouver', isCorrecta: false },
-      { opcion: 'Montreal', isCorrecta: false }
+      { opcion: 'Nazaret', isCorrecta: true },
+      { opcion: 'Jerusalén', isCorrecta: false },
+      { opcion: 'Cafarnaúm', isCorrecta: false },
+      { opcion: 'Belén', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Cuál es el elemento químico con símbolo O?',
+    pregunta: '¿Quién ordenó el censo que obligó a José y María a viajar a Belén?',
     opciones: [
-      { opcion: 'Oro', isCorrecta: false },
-      { opcion: 'Oxígeno', isCorrecta: true },
-      { opcion: 'Osmio', isCorrecta: false },
-      { opcion: 'Oganesón', isCorrecta: false }
+      { opcion: 'Herodes el Grande', isCorrecta: false },
+      { opcion: 'César Augusto', isCorrecta: true },
+      { opcion: 'Poncio Pilato', isCorrecta: false },
+      { opcion: 'Tiberio', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿En qué continente se encuentra Egipto?',
+    pregunta: '¿De qué linaje descendía José, lo que justificaba su viaje a Belén?',
     opciones: [
-      { opcion: 'Asia', isCorrecta: false },
-      { opcion: 'África', isCorrecta: true },
-      { opcion: 'Europa', isCorrecta: false },
-      { opcion: 'Oceanía', isCorrecta: false }
+      { opcion: 'De la tribu de Leví', isCorrecta: true },
+      { opcion: 'De la casa de David', isCorrecta: false },
+      { opcion: 'De la familia de Aarón', isCorrecta: false },
+      { opcion: 'De la tribu de Benjamín', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Quién pintó la Mona Lisa?',
+    pregunta: '¿Qué ofrenda presentaron José y María en el templo por Jesús?',
     opciones: [
-      { opcion: 'Vincent van Gogh', isCorrecta: false },
-      { opcion: 'Pablo Picasso', isCorrecta: false },
-      { opcion: 'Leonardo da Vinci', isCorrecta: true },
-      { opcion: 'Claude Monet', isCorrecta: false }
+      { opcion: 'Un cordero y una paloma', isCorrecta: false },
+      { opcion: 'Dos tórtolas', isCorrecta: true },
+      { opcion: 'Incienso y mirra', isCorrecta: false },
+      { opcion: 'Oro y plata', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Cuál es la fórmula química del agua?',
+    pregunta: '¿Qué le había sido revelado a Simeón antes de ver a Jesús?',
     opciones: [
-      { opcion: 'CO2', isCorrecta: false },
-      { opcion: 'H2O', isCorrecta: true },
-      { opcion: 'NaCl', isCorrecta: false },
-      { opcion: 'CH4', isCorrecta: false }
+      { opcion: 'Que moriría antes de la llegada del Mesías', isCorrecta: false },
+      { opcion: 'Que no moriría sin antes ver al Cristo del Señor', isCorrecta: true },
+      { opcion: 'Que Jesús sería un poderoso rey en la Tierra', isCorrecta: false },
+      { opcion: 'Que debía anunciar la venida del Mesías a todo el pueblo', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Qué instrumento mide la presión atmosférica?',
+    pregunta: '¿Quién era la profetisa que también reconoció a Jesús en el templo y hablaba de Él a todos los que esperaban la redención de Jerusalén?',
     opciones: [
-      { opcion: 'Termómetro', isCorrecta: false },
-      { opcion: 'Barómetro', isCorrecta: true },
-      { opcion: 'Altímetro', isCorrecta: false },
-      { opcion: 'Anemómetro', isCorrecta: false }
+      { opcion: 'Marta', isCorrecta: false },
+      { opcion: 'Ana', isCorrecta: true },
+      { opcion: 'Elisabet', isCorrecta: false },
+      { opcion: 'Débora', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Cuál es el río más largo del mundo?',
+    pregunta: '¿Qué profecía de Isaías fue cumplida cuando Jesús leyó en la sinagoga de Nazaret?',
     opciones: [
-      { opcion: 'Amazonas', isCorrecta: true },
-      { opcion: 'Nilo', isCorrecta: false },
-      { opcion: 'Yangtsé', isCorrecta: false },
-      { opcion: 'Misisipi', isCorrecta: false }
+      { opcion: 'El Mesías será un rey poderoso', isCorrecta: false },
+      { opcion: 'El Espíritu del Señor está sobre mí, por cuanto me ha ungido para dar buenas nuevas a los pobres', isCorrecta: true },
+      { opcion: 'El Salvador nacerá en Belén', isCorrecta: false },
+      { opcion: 'Los ciegos verán y los sordos oirán', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿En qué país nació el ajedrez?',
+    pregunta: '¿Cuál es el primer lugar donde se menciona el "evangelio" en el libro de Lucas?',
     opciones: [
-      { opcion: 'India', isCorrecta: true },
-      { opcion: 'China', isCorrecta: false },
-      { opcion: 'Grecia', isCorrecta: false },
-      { opcion: 'Persia', isCorrecta: false }
+      { opcion: 'En la predicación de Juan el Bautista', isCorrecta: false },
+      { opcion: 'En el mensaje de Jesús en la sinagoga de Nazaret', isCorrecta: true },
+      { opcion: 'En la región de Gadarea', isCorrecta: false },
+      { opcion: 'En el bautismo de Jesús', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Qué gas es necesario para la respiración humana?',
+    pregunta: 'Según Lucas 4:14, ¿cómo comenzó Jesús su ministerio después de haber vencido las tentaciones en el desierto? ',
     opciones: [
-      { opcion: 'Hidrógeno', isCorrecta: false },
-      { opcion: 'Nitrógeno', isCorrecta: false },
-      { opcion: 'Oxígeno', isCorrecta: true },
-      { opcion: 'Dióxido de carbono', isCorrecta: false }
+      { opcion: 'Se fue a Jerusalén', isCorrecta: false },
+      { opcion: 'Volvió en el poder del Espíritu', isCorrecta: true },
+      { opcion: 'Se quedó en Nazaret', isCorrecta: false },
+      { opcion: 'Comenzó a predicar en Roma', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Quién fue el primer hombre en pisar la Luna?',
+    pregunta: 'En Lucas 1:35, cuando el ángel Gabriel le habla a María, menciona que el Hijo que ella tendrá será llamado de una manera especial. ¿Cómo lo llama el ángel?',
     opciones: [
-      { opcion: 'Buzz Aldrin', isCorrecta: false },
-      { opcion: 'Neil Armstrong', isCorrecta: true },
-      { opcion: 'Yuri Gagarin', isCorrecta: false },
-      { opcion: 'Michael Collins', isCorrecta: false }
+      { opcion: 'Hijo del Hombre', isCorrecta: false },
+      { opcion: 'Rey de los Judíos', isCorrecta: false },
+      { opcion: 'Hijo de Dios', isCorrecta: true },
+      { opcion: 'El Mesías prometido', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Qué animal es el más grande del mundo?',
+    pregunta: '¿Cuál es la tercera tentación que registra Lucas?',
     opciones: [
-      { opcion: 'Elefante africano', isCorrecta: false },
-      { opcion: 'Ballena azul', isCorrecta: true },
-      { opcion: 'Tiburón blanco', isCorrecta: false },
-      { opcion: 'Jirafa', isCorrecta: false }
+      { opcion: 'Convertir las piedras en pan', isCorrecta: false },
+      { opcion: 'Arrojarse del templo', isCorrecta: true },
+      { opcion: 'Adorar a satanas', isCorrecta: false },
+      { opcion: 'Hacer un Milagro', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Cuál es la capital de Japón?',
+    pregunta: '¿Que le dijo un leproso a Jesús en Lucas cap. 4?',
     opciones: [
-      { opcion: 'Kioto', isCorrecta: false },
-      { opcion: 'Tokio', isCorrecta: true },
-      { opcion: 'Osaka', isCorrecta: false },
-      { opcion: 'Nagoya', isCorrecta: false }
+      { opcion: 'Quiero ser sanado Señor', isCorrecta: false },
+      { opcion: 'Señor, si quieres puedes limpiarme', isCorrecta: true },
+      { opcion: 'Limpiame, Señor', isCorrecta: false },
+      { opcion: 'Ayudame, Señor', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Qué órgano del cuerpo humano bombea la sangre?',
+    pregunta: '¿En qué ciudad Jesús resucitó al hijo de una viuda segun Lucas cap. 7?',
     opciones: [
-      { opcion: 'Pulmones', isCorrecta: false },
-      { opcion: 'Cerebro', isCorrecta: false },
-      { opcion: 'Corazón', isCorrecta: true },
-      { opcion: 'Hígado', isCorrecta: false }
+      { opcion: 'Nazaret', isCorrecta: false },
+      { opcion: 'capernaum', isCorrecta: false },
+      { opcion: 'Naín', isCorrecta: true },
+      { opcion: 'judá', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Cuál es el país con más población del mundo?',
+    pregunta: '¿En casa de quien comió Jesús cuando fue ungido con aceite?',
     opciones: [
-      { opcion: 'India', isCorrecta: false },
-      { opcion: 'Estados Unidos', isCorrecta: false },
-      { opcion: 'China', isCorrecta: true },
-      { opcion: 'Brasil', isCorrecta: false }
+      { opcion: 'Pedro', isCorrecta: false },
+      { opcion: 'Mateo', isCorrecta: false },
+      { opcion: 'Simon', isCorrecta: true },
+      { opcion: 'Marta', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Qué tipo de animal es una rana?',
+    pregunta: '¿Por qué jesús escogio a pescadores para ser sus discipulos?',
     opciones: [
-      { opcion: 'Reptil', isCorrecta: false },
-      { opcion: 'Anfibio', isCorrecta: true },
-      { opcion: 'Ave', isCorrecta: false },
-      { opcion: 'Mamífero', isCorrecta: false }
+      { opcion: 'Por ser humildes', isCorrecta: false },
+      { opcion: 'Por ser enseñables', isCorrecta: false },
+      { opcion: 'Por ser vigorosos', isCorrecta: false },
+      { opcion: 'Por ser humildes y susceptibles de ser enseñados', isCorrecta: true }
     ]
   },
   {
-    pregunta: '¿Cuál es el metal más ligero?',
+    pregunta: '¿Con queadjetivo describio Dios al rico insensato?',
     opciones: [
-      { opcion: 'Aluminio', isCorrecta: false },
-      { opcion: 'Litio', isCorrecta: true },
-      { opcion: 'Plomo', isCorrecta: false },
-      { opcion: 'Titanio', isCorrecta: false }
+      { opcion: 'Tonto', isCorrecta: false },
+      { opcion: 'Necio', isCorrecta: true },
+      { opcion: 'Habil', isCorrecta: false },
+      { opcion: 'Estupido', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿En qué año terminó la Segunda Guerra Mundial?',
+    pregunta: '¿Desde hace cuantos años una mujer tenia un espiritu de enfermedas al momento de ser sanada por jesus en una sinagoga?',
     opciones: [
-      { opcion: '1944', isCorrecta: false },
-      { opcion: '1945', isCorrecta: true },
-      { opcion: '1939', isCorrecta: false },
-      { opcion: '1946', isCorrecta: false }
+      { opcion: '12 años', isCorrecta: false },
+      { opcion: '15 años', isCorrecta: false },
+      { opcion: '18 años', isCorrecta: true },
+      { opcion: '20 años', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Qué día se celebra la Navidad?',
+    pregunta: '¿Cuantas parabolas se cuentan en lucas cap 15?',
     opciones: [
-      { opcion: '24 de diciembre', isCorrecta: false },
-      { opcion: '25 de diciembre', isCorrecta: true },
-      { opcion: '31 de diciembre', isCorrecta: false },
-      { opcion: '1 de enero', isCorrecta: false }
+      { opcion: '2', isCorrecta: false },
+      { opcion: '3', isCorrecta: true },
+      { opcion: '4', isCorrecta: false },
+      { opcion: '5', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Qué número representa la letra "X" en números romanos?',
+    pregunta: '¿Cuántos hermanos tenia el rico en la parabola del rico y Lazaro?',
     opciones: [
-      { opcion: '5', isCorrecta: false },
-      { opcion: '10', isCorrecta: true },
-      { opcion: '50', isCorrecta: false },
-      { opcion: '100', isCorrecta: false }
+      { opcion: '5', isCorrecta: true },
+      { opcion: '6', isCorrecta: false },
+      { opcion: '4', isCorrecta: false },
+      { opcion: '2', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Qué científico formuló la teoría de la relatividad?',
+    pregunta: '¿Que señal iba a dar Judas para señalar a Jesus?',
     opciones: [
-      { opcion: 'Isaac Newton', isCorrecta: false },
-      { opcion: 'Albert Einstein', isCorrecta: true },
-      { opcion: 'Galileo Galilei', isCorrecta: false },
-      { opcion: 'Stephen Hawking', isCorrecta: false }
+      { opcion: 'Lo iba a abrazar', isCorrecta: false },
+      { opcion: 'Le daria la mano', isCorrecta: true },
+      { opcion: 'Lo señalaria con el dedo', isCorrecta: false },
+      { opcion: 'Lo iba a besar', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Cuál es el idioma más hablado en el mundo?',
+    pregunta: '¿Ante quien se presento primero Jesus despues de su arresto?',
     opciones: [
-      { opcion: 'Inglés', isCorrecta: false },
-      { opcion: 'Mandarín', isCorrecta: true },
-      { opcion: 'Español', isCorrecta: false },
-      { opcion: 'Árabe', isCorrecta: false }
+      { opcion: 'Poncio pilato', isCorrecta: false },
+      { opcion: 'Ancianos, sacerdotes y escribas', isCorrecta: true },
+      { opcion: 'Herodes', isCorrecta: false },
+      { opcion: 'Los ancianos', isCorrecta: false }
     ]
   },
   {
-    pregunta: '¿Cuántos lados tiene un hexágono?',
+    pregunta: '¿A que hora murio Jesús?',
     opciones: [
-      { opcion: '6', isCorrecta: true },
-      { opcion: '5', isCorrecta: false },
-      { opcion: '7', isCorrecta: false },
-      { opcion: '8', isCorrecta: false }
+      { opcion: 'Hora sexta', isCorrecta: true },
+      { opcion: 'Hora novena', isCorrecta: false },
+      { opcion: 'Hora doceaba', isCorrecta: false },
+      { opcion: 'Hora undecima', isCorrecta: false }
     ]
     }] as IPregunta[]
   }),
