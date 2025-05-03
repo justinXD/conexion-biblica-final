@@ -30,14 +30,14 @@ export const useClubesStore = defineStore('clubes', {
         modificarPuntaje(nombre: string) {
             const club = this.clubes.find(c => c.club === nombre)
             if (club) {
-                club.puntaje += 100
+                // club.puntaje += 100
             }
             return this.getClubByName(nombre)?.puntaje
         },
         restarPuntaje(nombre: string): number | undefined {
             const club = this.clubes.find(c => c.club === nombre)
             if (club) {
-              club.puntaje -= 50
+              club.puntaje -= 100
             }
             return this.getClubByName(nombre)?.puntaje
       },

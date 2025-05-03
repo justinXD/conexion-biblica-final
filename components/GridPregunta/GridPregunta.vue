@@ -18,42 +18,36 @@
                                     'opacity-50 pointer-events-none': opcionSeleccionada !== null && opcionSeleccionada !== index
                                 }"
                                 @click="seleccionarOpcion(index, opcion)">
-                                {{ index + 1 }}. {{ opcion.opcion }}
+                                {{ index + 1 }}.- {{ opcion.opcion }}
                             </div>
                         </div>
                     </div>
                     <section class="grid justify-items-end mb-4 cursor-pointer">
                         <button @click="siguientePregunta" 
                                 :disabled="!habilitarBoton" 
-                                :class="['bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300', { 'opacity-50 cursor-not-allowed': !habilitarBoton }]">
+                                :class="['bg-blue-500 text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-blue-600 transition duration-300', { 'opacity-50 cursor-not-allowed': !habilitarBoton }]">
                             Siguiente pregunta
                         </button>
                     </section>
                 </div>
-                <!-- <ul class="list-disc pl-5">
-                    <li v-for="(pregunta, index) in preguntas" :key="index" class="mb-2">
-                        {{ pregunta }}
-                    </li>
-                </ul> -->
             </div>
-        <!-- <div v-else class="bg-white shadow-md rounded-lg p-4">
-            <p>No hay preguntas registradas para el club.</p>
-        </div> -->
         </div>
     </main>
 </template>
 <script setup lang="ts">
-import { ref, watch, computed, onMounted } from 'vue'
+import { ref, watch, computed, onMounted, defineEmits,defineProps } from 'vue'
 import type { IPreguntasPorClub, IPregunta, IOpcionRespuesta } from '~/types/clubes'
 import { usePreguntasPorClubStore } from '@/stores/usePreguntasPorClubStore'
-import { useContadorStore } from '@/stores/useContadorStore'
+import { usePreguntaNumeroStore } from '@/stores/usePreguntaNumeroStore'
 import { useClubesStore } from '@/stores/useClubesStore'
-import { useContadorClubesStore } from '@/stores/useContadorClubesStore'
+import { useClubNumeroStore } from '@/stores/useClubNumeroStore'
 
 const preguntasPorClubStore = usePreguntasPorClubStore()
-const contadorStore = useContadorStore()
-const contadorClubesStore = useContadorClubesStore()
+const contadorStore = usePreguntaNumeroStore()
+const contadorClubesStore = useClubNumeroStore()
 const clubesStore = useClubesStore()
+const emit = defineEmits(['pausarTemporizador', 'reiniciarTemporizador', 'reiniciarPreguntas'])
+const props = defineProps<{ filtrarPreguntas: boolean }>()
 // const { modificarPuntaje, restarPuntaje, getPuntosPorClub } = clubesStore
 
 const opcionSeleccionada = ref<number | null>(null)
@@ -63,20 +57,38 @@ let calificacion = ref<number | undefined>(0)
 
 const preguntasPorClub = preguntasPorClubStore.getAllPreguntasPorClub
 const nombreClub = computed(() => preguntasPorClub.map((club: IPreguntasPorClub) => club.club)[contadorStore.getContador])
-const preguntas = computed(() => {
-  const pregunta = preguntasPorClub
-    .map((club: IPreguntasPorClub) => club.preguntas)
-    .flat()[contadorClubesStore.getContador];
+let preguntas = computed(() => {
+  if(!props.filtrarPreguntas) {
+    const pregunta = preguntasPorClub
+    .map((club: IPreguntasPorClub) => club.preguntas)[contadorClubesStore.getContador][contadorStore.getContador];
   return pregunta as IPregunta;
+  } else {
+    const pregunta = preguntasPorClub
+    .map((club: IPreguntasPorClub) => club.preguntas)[contadorClubesStore.getContador][contadorStore.getContador];
+    const opcionesCorrectas = pregunta.opciones.filter(opcion => opcion.isCorrecta);
+    const opcionesIncorrectas = pregunta.opciones.filter(opcion => !opcion.isCorrecta);
+    const opcionIncorrecta = opcionesIncorrectas[Math.floor(Math.random() * opcionesIncorrectas.length)];
+
+    // Crear un nuevo array con una opción correcta y una incorrecta
+    const opcionesFiltradas = [opcionesCorrectas[0], opcionIncorrecta];
+    return {
+      pregunta: pregunta.pregunta,
+      opciones: opcionesFiltradas
+    };
+  }
+  
 });
 
 function seleccionarOpcion(index: number, respuesta: IOpcionRespuesta) {
   // Solo permite seleccionar una vez
+  console.log("entre a seleccionar opcion")
   if (opcionSeleccionada.value === null) {
     opcionSeleccionada.value = index
     }
   console.log('Respuesta seleccionada:', respuesta.opcion)
   console.log('Respuesta correcta:', respuesta.isCorrecta)
+  // debugger
+  emit('pausarTemporizador')
     if (respuesta.isCorrecta) {
     console.log('calificacion anterior', calificacion.value)
     clubesStore.modificarPuntaje(nombreClub.value)
@@ -94,25 +106,33 @@ watch(nombreClub, (newNombreClub: string) => {
   // Reiniciar la opción seleccionada al cambiar de club
   calificacion.value = clubesStore.getPuntosPorClub(newNombreClub)
 })
+const filtrarPreguntas5050 = computed(() => props.filtrarPreguntas);
 onMounted(() => {
   // Reiniciar la opción seleccionada al cargar el componente
   opcionSeleccionada.value = null
   calificacion.value = clubesStore.getPuntosPorClub(nombreClub.value)
+  console.log("todo el store de preguntas por club", preguntasPorClub)
+  console.log("conjunto de preguntas", preguntas)
 })
 function siguientePregunta() {
-  // Aquí puedes implementar la lógica para cargar la siguiente pregunta
-  // Por ejemplo, incrementar el contador y cargar la nueva pregunta
-    //   contadorStore.incrementarContador()
     let contador = contadorClubesStore.getContador
-  if (contador < 4) {
+  if (contador == 4) {
       contadorStore.incrementarContador()
       contadorClubesStore.reiniciarContador()
+      opcionSeleccionada.value = null
+      if(filtrarPreguntas5050.value){
+        emit('reiniciarPreguntas')
+      }
   } else {
     contadorClubesStore.incrementarContador()
     habilitarBoton.value = false
     opcionSeleccionada.value = null
     calificacion.value = clubesStore.getPuntosPorClub(nombreClub.value)
+    if(filtrarPreguntas5050.value){
+        emit('reiniciarPreguntas')
+      }
   }
-  
+  emit('reiniciarTemporizador')
+  console.log('Siguiente pregunta')
 }
 </script>

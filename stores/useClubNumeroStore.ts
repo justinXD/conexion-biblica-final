@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-export const useContadorStore = defineStore('contador', {
+export const useClubNumeroStore = defineStore('clubNumero', {
     state: () => ({ contador: 0 }),
     getters: {
         getContador(state): number {
