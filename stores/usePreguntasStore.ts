@@ -51,8 +51,8 @@ export const usePreguntasStore = defineStore('preguntas', {
   {
     pregunta: '¿De qué linaje descendía José, lo que justificaba su viaje a Belén?',
     opciones: [
-      { opcion: 'De la tribu de Leví', isCorrecta: true },
-      { opcion: 'De la casa de David', isCorrecta: false },
+      { opcion: 'De la tribu de Leví', isCorrecta: false },
+      { opcion: 'De la casa de David', isCorrecta: true },
       { opcion: 'De la familia de Aarón', isCorrecta: false },
       { opcion: 'De la tribu de Benjamín', isCorrecta: false }
     ]
@@ -166,7 +166,7 @@ export const usePreguntasStore = defineStore('preguntas', {
     ]
   },
   {
-    pregunta: '¿Con queadjetivo describio Dios al rico insensato?',
+    pregunta: '¿Con que adjetivo describio Dios al rico insensato?',
     opciones: [
       { opcion: 'Tonto', isCorrecta: false },
       { opcion: 'Necio', isCorrecta: true },
@@ -205,9 +205,9 @@ export const usePreguntasStore = defineStore('preguntas', {
     pregunta: '¿Que señal iba a dar Judas para señalar a Jesus?',
     opciones: [
       { opcion: 'Lo iba a abrazar', isCorrecta: false },
-      { opcion: 'Le daria la mano', isCorrecta: true },
+      { opcion: 'Le daria la mano', isCorrecta: false },
       { opcion: 'Lo señalaria con el dedo', isCorrecta: false },
-      { opcion: 'Lo iba a besar', isCorrecta: false }
+      { opcion: 'Lo iba a besar', isCorrecta: true }
     ]
   },
   {
@@ -222,8 +222,8 @@ export const usePreguntasStore = defineStore('preguntas', {
   {
     pregunta: '¿A que hora murio Jesús?',
     opciones: [
-      { opcion: 'Hora sexta', isCorrecta: true },
-      { opcion: 'Hora novena', isCorrecta: false },
+      { opcion: 'Hora sexta', isCorrecta: false },
+      { opcion: 'Hora novena', isCorrecta: true },
       { opcion: 'Hora doceaba', isCorrecta: false },
       { opcion: 'Hora undecima', isCorrecta: false }
     ]
